@@ -1,5 +1,6 @@
 package com.ist440.rewards;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -48,5 +49,9 @@ public class MainPage extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void btnSettingsOnClick(View view){
+        Intent intent = new Intent (this,SettingsActivity.class)
     }
 }
