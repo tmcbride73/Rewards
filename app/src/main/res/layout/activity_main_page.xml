@@ -28,7 +28,7 @@
         android:layout_height="54dp"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_upload"
+        app:srcCompat="@drawable/ic_camera_enhance_white_24dp"
         tools:layout_editor_absoluteX="286dp"
         tools:layout_editor_absoluteY="497dp" />
 

@@ -1,7 +1,10 @@
 package com.ist440.rewards;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +14,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class MainPage extends AppCompatActivity {
+
+    private final int CAPTURE_PHOTO = 102;
+    Uri uri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,12 @@ public class MainPage extends AppCompatActivity {
             public void onClick(View view) {
                 Snackbar.make(view, "Add your receipt now!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    //Uri uri = Uri.pars("file///sdcard/phot.jpg");
+                    String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "propic.jpg";
+                    uri = Uri.parse(root);
+                    startActivityForResult(i, CAPTURE_PHOTO);
+
             }
         });
     }
@@ -51,7 +63,7 @@ public class MainPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void btnSettingsOnClick(View view){
-        Intent intent = new Intent (this,SettingsActivity.class)
-    }
+    //public void btnSettingsOnClick(View view){
+    //    Intent intent = new Intent (this,SettingsActivity.class)
+    //}
 }
