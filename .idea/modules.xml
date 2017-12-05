@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Rewards.iml" filepath="$PROJECT_DIR$/.idea/Rewards.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Rewards.iml" filepath="$PROJECT_DIR$/Rewards.iml" />
+      <module fileurl="file://C:\Users\pipbo\AndroidStudioProjects\Rewards\.idea\Rewards.iml" filepath="C:\Users\pipbo\AndroidStudioProjects\Rewards\.idea\Rewards.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

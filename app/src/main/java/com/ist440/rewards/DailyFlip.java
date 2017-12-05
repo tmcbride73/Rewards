@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import java.util.Random;
@@ -15,7 +16,8 @@ public class DailyFlip extends AppCompatActivity {
 
     int coinSide; //0 = Heads, 1 = Tails
     Random r = new Random(); // Random value
-    ImageView iv_coin;
+
+    private ImageView iv_coin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,12 +26,14 @@ public class DailyFlip extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+        Button flip_coin = (Button) findViewById(R.id.flip_coin);
+
         //COIN
 
         iv_coin = (ImageView) findViewById(R.id.iv_coin);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_flip);
-        fab.setOnClickListener(new View.OnClickListener() {
+        flip_coin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Coin Flipped", Snackbar.LENGTH_LONG)
