@@ -3,6 +3,7 @@
     package="com.ist440.rewards">
 
     <uses-feature android:name="android.hardware.camera" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -27,6 +28,15 @@
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
             android:parentActivityName=".MainPage">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ist440.rewards.MainPage" />
+        </activity>
+        <activity
+            android:name=".DailyFlip"
+            android:label="@string/title_activity_daily_flip"
+            android:parentActivityName=".MainPage"
+            android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.ist440.rewards.MainPage" />

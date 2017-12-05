@@ -13,15 +13,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.File;
 
+import static android.provider.AlarmClock.EXTRA_MESSAGE;
+
 public class MainPage extends AppCompatActivity {
 
-    //private final int CAPTURE_PHOTO = 102;
     Uri uri;
     static final int CAM_REQUEST = 1;
-
     String mCurrentPhotoPath;
 
     @Override
@@ -75,6 +77,10 @@ public class MainPage extends AppCompatActivity {
         String path = "sdcard/RewardsPlus/cam_image.jpg";
     }
 
+    public void dailyFlip (View view){
+        Intent intent = new Intent(this, DailyFlip.class);
+        startActivity(intent);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
