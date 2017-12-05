@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,10 +14,15 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.io.File;
+
 public class MainPage extends AppCompatActivity {
 
-    private final int CAPTURE_PHOTO = 102;
+    //private final int CAPTURE_PHOTO = 102;
     Uri uri;
+    static final int CAM_REQUEST = 1;
+
+    String mCurrentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,21 +31,50 @@ public class MainPage extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //BYPASSES URI EXCEPTION
+        StrictMode.VmPolicy.Builder builder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(builder.build());
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Add your receipt now!", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    //Uri uri = Uri.pars("file///sdcard/phot.jpg");
-                    String root = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES).toString() + "propic.jpg";
-                    uri = Uri.parse(root);
-                    startActivityForResult(i, CAPTURE_PHOTO);
+
+                //CAMERA ACTIONS
+                Intent camera_intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                File file = getFile();
+
+                uri = Uri.fromFile(file);
+                camera_intent.putExtra(MediaStore.EXTRA_OUTPUT, uri);
+                startActivityForResult(camera_intent, CAM_REQUEST);
+
 
             }
         });
     }
+
+    private File getFile()
+    {
+        File folder = new File("sdcard/RewardsPlus");
+
+        if(!folder.exists())
+        {
+            folder.mkdir();
+        }
+
+        File image_file = new File(folder, "cam_image.jpg");
+        return image_file;
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        String path = "sdcard/RewardsPlus/cam_image.jpg";
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -63,7 +98,4 @@ public class MainPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    //public void btnSettingsOnClick(View view){
-    //    Intent intent = new Intent (this,SettingsActivity.class)
-    //}
 }
