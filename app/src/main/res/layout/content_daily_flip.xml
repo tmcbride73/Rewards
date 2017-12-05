@@ -21,7 +21,7 @@
         android:id="@+id/flip_coin"
         android:layout_width="279dp"
         android:layout_height="52dp"
-        android:layout_marginTop="230dp"
+        android:layout_marginTop="250dp"
         android:text="Flip Your Coin!"
         android:onClick="flip_coin"
         app:layout_constraintHorizontal_bias="0.506"
