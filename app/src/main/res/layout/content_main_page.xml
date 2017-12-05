@@ -11,10 +11,22 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="476dp"
+        android:layout_marginBottom="272dp"
         android:text="Rewards+"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/daily_flip"
+        android:layout_width="279dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:text="Daily Flip"
+        android:onClick="dailyFlip"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
