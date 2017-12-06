@@ -36,19 +36,22 @@ public class DailyFlip extends AppCompatActivity {
         flip_coin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Coin Flipped", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
                 coinSide = r.nextInt(2);
+                String coinText;
 
                 if(coinSide == 0)
                 {
                     iv_coin.setImageResource(R.drawable.heads);
+                    coinText = "Heads";
                 }
                 else
                 {
                     iv_coin.setImageResource(R.drawable.tails);
+                    coinText = "Tails";
                 }
+
+                Snackbar.make(view, "Coin Flipped         " + coinText + "!", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
 
                 RotateAnimation rotate = new RotateAnimation(0, 360,
                         RotateAnimation.RELATIVE_TO_SELF, 0.5f, RotateAnimation.RELATIVE_TO_SELF, 0.5f);
