@@ -34,7 +34,16 @@
         </activity>
         <activity
             android:name=".DailyFlip"
-            android:label="@string/title_activity_daily_flip"
+            android:label="DailyFlip"
+            android:parentActivityName=".MainPage"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.ist440.rewards.MainPage" />
+        </activity>
+        <activity
+            android:name=".MapsActivity"
+            android:label="MapsActivity"
             android:parentActivityName=".MainPage"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
